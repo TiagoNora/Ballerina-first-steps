@@ -341,7 +341,8 @@ dependencies = [
 	{org = "ballerinax", name = "mysql.driver"}
 ]
 modules = [
-	{org = "tiago", packageName = "teste", moduleName = "teste"}
+	{org = "tiago", packageName = "teste", moduleName = "teste"},
+	{org = "tiago", packageName = "teste", moduleName = "teste.util"}
 ]
 
 
