@@ -20,9 +20,19 @@ configurable string HOST = ?;
 configurable int PORT = ?;
 configurable string DATABASE = ?;
 
-final mysql:Client dbClient = check new(
-    host=HOST, user=USER, password=PASSWORD, port=PORT, database="Company"
-);
+
+final mysql:Client dbClient = check new(host=HOST, user=USER, password=PASSWORD, port=PORT, database="Company");
+
+function init() returns error? {
+
+    sql:ExecutionResult result = check dbClient->execute(`CREATE TABLE IF NOT EXISTS student (
+                                           id INT AUTO_INCREMENT,
+                                           age INT, 
+                                           name VARCHAR(255), 
+                                           PRIMARY KEY (id)
+                                         )`);
+    check dbClient.close();
+}
 
 public function addEmployee(Employee emp) returns int|error {
     sql:ExecutionResult result = check dbClient->execute(`
