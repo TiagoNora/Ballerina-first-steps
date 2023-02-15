@@ -6,6 +6,10 @@ service /employees on new http:Listener(8080) {
 
     resource function post .(@http:Header string authorization, @http:Payload util:Employee emp) returns int|error? {
         io:println(authorization);
+        string header = authorization;
+        int length = header.length();
+        string token = header.substring(7, length);
+        io:println(token);
         return util:addEmployee(emp);
     }
     
