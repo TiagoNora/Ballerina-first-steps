@@ -31,7 +31,6 @@ function init() returns error? {
                                            name VARCHAR(255), 
                                            PRIMARY KEY (id)
                                          )`);
-    check dbClient.close();
 }
 
 public function addEmployee(Employee emp) returns int|error {
