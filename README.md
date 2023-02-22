@@ -1,3 +1,3 @@
-# TestBallerina
+# Ballerina first steps
  
-Projeto teste para a linguagem ballerina
+Example project for ballerina
